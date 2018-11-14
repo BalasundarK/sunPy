@@ -1,0 +1,27 @@
+command &>> output.txt
+---------------------------------
+script output.txt
+Script started, file is output.txt
+
+$ ls
+output.txt  testfile.txt  foo.txt
+
+$ exit
+exit
+Script done, file is output.txt
+---------------------------------
+
+date | tee -a out.txt
+
+The following command will take a backup of the crontab entries, and pass the crontab entries as an input to sed command which will do the substituion. After the substitution, it will be added as a new cron job.
+
+crontab -l | tee crontab-backup.txt | sed 's/old/new/' | crontab –
+
+ cat test | tee out | sed 's/date/time/' | tee myout
+
+
+command 2>&1 | sed -r 's/'$(echo -e "\033")'\[[0-9]{1,2}(;([0-9]{1,2})?)?[mK]//g' | tee ~/outputfile.txt
+
+pwd  &>> output.txt
+hotsname  &>> output.txt
+whoami  &>> output.txt
